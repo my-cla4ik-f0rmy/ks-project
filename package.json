@@ -1,0 +1,26 @@
+{
+  "name": "ks-pguti-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@material/button": "^14.0.0",
+    "@material/textfield": "^14.0.0",
+    "material-components-web": "^14.0.0",
+    "material-icons": "^1.13.6",
+    "node-sass": "^8.0.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.62.1",
+    "vite": "^4.3.2",
+    "vite-plugin-pwa": "^0.14.7",
+    "vite-plugin-sass": "^0.1.0"
+  }
+}
