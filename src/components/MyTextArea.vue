@@ -5,7 +5,7 @@
   <span class="mdc-notched-outline">
     <span class="mdc-notched-outline__leading"></span>
     <span class="mdc-notched-outline__notch">
-      <span class="mdc-floating-label" id="my-label-id">Информация</span>
+      <span class="mdc-floating-label" id="my-label-id">Тест</span>
     </span>
     <span class="mdc-notched-outline__trailing"></span>
   </span>
