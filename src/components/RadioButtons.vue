@@ -36,8 +36,21 @@
 
 
 <style lang="scss" >
+@use "@material/theme" with (
+  $primary: #006491,
+  $secondary: #006491,
+ 
+  $on-primary: #006491,
+  $on-secondary: #006491,
+  $surface: red,
+  
+);
 @use "@material/radio/styles";
 @use "@material/form-field";
 
 @include form-field.core-styles;
+
+.mdc-radio{
+    $ink-color: #006491
+}
 </style>

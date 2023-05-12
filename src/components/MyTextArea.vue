@@ -5,7 +5,7 @@
   <span class="mdc-notched-outline">
     <span class="mdc-notched-outline__leading"></span>
     <span class="mdc-notched-outline__notch">
-      <span class="mdc-floating-label" id="my-label-id">Тест</span>
+      <span class="mdc-floating-label" id="my-label-id">Информация</span>
     </span>
     <span class="mdc-notched-outline__trailing"></span>
   </span>
@@ -17,13 +17,27 @@
 </label>
 </template>
 
+
+<script>
+selectedOption = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+
+
+</script>
+
 <style lang="scss">
+
+
 @use "@material/floating-label/mdc-floating-label";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
 
 @include textfield.core-styles;
+
+.mdc-text-field{
+  @include textfield.outline-color(orange);
+}
+
 
 
 </style>

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
-import './sketch'
 import './p5'
+
 import App from './App.vue'
 
 createApp(App).mount('#app')
@@ -38,3 +38,8 @@ const textField2 = new MDCTextField(document.querySelector('.area'));
 
 
 
+import {MDCTopAppBar} from '@material/top-app-bar';
+
+// Instantiation
+const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+const topAppBar = new MDCTopAppBar(topAppBarElement);
