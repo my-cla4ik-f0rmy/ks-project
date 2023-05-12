@@ -6,6 +6,7 @@ import TextInput from "./components/TextInput.vue"
 import Menu from "./components/Menu.vue"
 import TopBar from "./components/TopBar.vue"
 
+
 </script>
 
 <template>
@@ -13,11 +14,11 @@ import TopBar from "./components/TopBar.vue"
   <div class="main mdc-top-app-bar--fixed-adjust">
     
     <div class="settings">
-      <div class="text h1">Настройки</div>
+      <!--<div class="text h1">Настройки</div>-->
       <Menu></Menu>
       <TextInput title="Заголовок" idS="sample5" ></TextInput>
-      <RadioButtons v-show="selectedOption !== '4'"></RadioButtons>
-      <MyTextArea v-show="selectedOption !== '2'"></MyTextArea>
+      <RadioButtons ></RadioButtons>
+      <MyTextArea v-show="value != 1"></MyTextArea>
       
       <!--<div class="buttons-block">
         <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="draw();" style="width: 100%;">
@@ -51,13 +52,6 @@ import TopBar from "./components/TopBar.vue"
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      selectedOption: "1",
-    };
-  },
-};
 
 </script>
 

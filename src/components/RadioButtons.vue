@@ -1,6 +1,6 @@
 
 <template>
-  <div class="mdc-form-field">
+  <div class="mdc-form-field" v-show="type !== 4">
     <div class="mdc-radio">
         <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" value="1" checked>
         <div class="mdc-radio__background">
@@ -32,8 +32,12 @@
     <label for="radio-3">Оранжевый</label>
 
 </div>
+
 </template>
 
+<script>
+
+</script>
 
 <style lang="scss" >
 @use "@material/theme" with (

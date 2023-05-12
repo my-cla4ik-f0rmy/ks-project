@@ -32,19 +32,18 @@
   </div>
 
   <!-- Other elements from the select remain. -->
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-    <ul class="mdc-deprecated-list">
-      <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true">
+  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" >
+    <ul class="mdc-deprecated-list" >
+      <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true" >
         <span class="mdc-deprecated-list-item__ripple"></span>
         <span class="mdc-deprecated-list-item__text">Пост</span>
-
       </li>
       <li class="mdc-deprecated-list-item" data-value="2">
         <span class="mdc-deprecated-list-item__ripple"></span>
         <span class="mdc-deprecated-list-item__text">Аватарка</span>
       </li>
       <li class="mdc-deprecated-list-item" data-value="3">
-        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__ripple" ></span>
         <span class="mdc-deprecated-list-item__text">Пост 2</span>
       </li>
       <li class="mdc-deprecated-list-item" data-value="4">
@@ -53,8 +52,12 @@
       </li>
     </ul>
   </div>
+
 </div>
 </template>
+<script>
+</script>
+
 <style lang="scss">
 @use "@material/list/mdc-list";
 @use "@material/menu-surface/mdc-menu-surface";

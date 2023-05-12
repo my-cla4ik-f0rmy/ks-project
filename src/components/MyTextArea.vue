@@ -19,7 +19,6 @@
 
 
 <script>
-selectedOption = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
 
 
 </script>
