@@ -33,6 +33,7 @@
 
   <!-- Other elements from the select remain. -->
   <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" >
+    
     <ul class="mdc-deprecated-list" >
       <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true" >
         <span class="mdc-deprecated-list-item__ripple"></span>
@@ -50,12 +51,12 @@
         <span class="mdc-deprecated-list-item__ripple"></span>
         <span class="mdc-deprecated-list-item__text">Мозайка</span>
       </li>
-    </ul>
+  </ul>
   </div>
-
 </div>
 </template>
 <script>
+
 </script>
 
 <style lang="scss">

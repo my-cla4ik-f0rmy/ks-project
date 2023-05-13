@@ -6,7 +6,6 @@ import TextInput from "./components/TextInput.vue"
 import Menu from "./components/Menu.vue"
 import TopBar from "./components/TopBar.vue"
 
-
 </script>
 
 <template>
@@ -52,6 +51,7 @@ import TopBar from "./components/TopBar.vue"
 </template>
 
 <script>
+
 
 </script>
 
