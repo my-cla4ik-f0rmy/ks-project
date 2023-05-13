@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
 import RadioButtons from "./components/RadioButtons.vue";
 import MyTextArea from "./components/MyTextArea.vue";
 import TextInput from "./components/TextInput.vue"
@@ -14,11 +13,9 @@ import TopBar from "./components/TopBar.vue"
     
     <div class="settings">
       <!--<div class="text h1">Настройки</div>-->
-      <Menu></Menu>
       <TextInput title="Заголовок" idS="sample5" ></TextInput>
       <RadioButtons ></RadioButtons>
-      <MyTextArea v-show="value != 1"></MyTextArea>
-      
+      <MyTextArea v-show="selectedOption !== '2'"></MyTextArea>
       <!--<div class="buttons-block">
         <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="draw();" style="width: 100%;">
             <span class="mdc-button__ripple"></span>
@@ -53,6 +50,7 @@ import TopBar from "./components/TopBar.vue"
 <script>
 
 
+
 </script>
 
 
@@ -66,14 +64,16 @@ import TopBar from "./components/TopBar.vue"
   
 );
 @use "@material/shape" with (
-  $small-component-radius: 10px,
-  $medium-component-radius: 10px
+  $small-component-radius: 7px,
+  $medium-component-radius: 7px
 );
 @use "material-components-web";
 @use "@material/button";
 @use "@material/button/styles.scss";
 
+
 @import "./variables";
+
 
 
 </style>

@@ -76,8 +76,11 @@ function setup() {
   height = h
   let canvas = createCanvas(350, 350);
   canvas.parent('sketch-div');
-  select = document.querySelector('.mdc-select');
-  type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+ 
+  select = document.getElementById('mySelect');
+  type = select.value;
+
+
   one = createGraphics(1080, 1080);
   two = createGraphics(1080, 1080);
   three = createGraphics(1620, 1080);
@@ -112,7 +115,7 @@ function handleFile(file) {
 
 
 function draw() {
-  type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+  type = select.value;
   if (type == '1') {
     resizeCanvas(400, 400)
     post_sm();

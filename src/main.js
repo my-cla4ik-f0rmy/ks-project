@@ -6,13 +6,6 @@ import App from './App.vue'
 
 createApp(App).mount('#app')
 
-import '@material/web/button/filled-button.js';
-import '@material/web/button/outlined-button.js';
-import '@material/web/checkbox/checkbox.js';
-import '@material/web/select/outlined-select.js';
-import '@material/web/select/select-option.js';
-
-
 
 import {MDCFormField} from '@material/form-field';
 import {MDCRadio} from '@material/radio';
@@ -26,14 +19,12 @@ import {MDCMenu} from '@material/menu';
 
 const menu = new MDCMenu(document.querySelector('.mdc-menu'));
 
-
-
+type = menu.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
 
 
 import {MDCSelect} from '@material/select';
 
 const select = new MDCSelect(document.querySelector('.mdc-select'));
-
 
 
   
