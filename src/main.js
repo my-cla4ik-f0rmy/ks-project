@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
 import './style.css'
-import './p5'
-
+import './sketch.js'
 import App from './App.vue'
 
 createApp(App).mount('#app')
+
+
 
 
 import {MDCFormField} from '@material/form-field';
@@ -19,7 +20,7 @@ import {MDCMenu} from '@material/menu';
 
 const menu = new MDCMenu(document.querySelector('.mdc-menu'));
 
-type = menu.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+
 
 
 import {MDCSelect} from '@material/select';
@@ -36,10 +37,5 @@ const textField2 = new MDCTextField(document.querySelector('.area'));
 
 
 
-import {MDCTopAppBar} from '@material/top-app-bar';
-
-// Instantiation
-const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-const topAppBar = new MDCTopAppBar(topAppBarElement);
 
 

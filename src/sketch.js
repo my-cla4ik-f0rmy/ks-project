@@ -1,5 +1,6 @@
 
 
+
 var Test = {
   data: {
     color1: "#1D628B",
@@ -76,11 +77,8 @@ function setup() {
   height = h
   let canvas = createCanvas(350, 350);
   canvas.parent('sketch-div');
- 
-  select = document.getElementById('mySelect');
-  type = select.value;
-
-
+  select = document.querySelector('.mdc-select');
+  type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
   one = createGraphics(1080, 1080);
   two = createGraphics(1080, 1080);
   three = createGraphics(1620, 1080);
@@ -115,7 +113,7 @@ function handleFile(file) {
 
 
 function draw() {
-  type = select.value;
+  type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
   if (type == '1') {
     resizeCanvas(400, 400)
     post_sm();
@@ -380,7 +378,6 @@ function save() {
 
 
 }
-
 
 
 

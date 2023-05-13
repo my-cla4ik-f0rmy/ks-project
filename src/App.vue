@@ -4,6 +4,8 @@ import MyTextArea from "./components/MyTextArea.vue";
 import TextInput from "./components/TextInput.vue"
 import Menu from "./components/Menu.vue"
 import TopBar from "./components/TopBar.vue"
+import Sketch from "./components/Sketch.vue"
+
 
 </script>
 
@@ -13,9 +15,10 @@ import TopBar from "./components/TopBar.vue"
     
     <div class="settings">
       <!--<div class="text h1">Настройки</div>-->
+      <Menu></Menu>
       <TextInput title="Заголовок" idS="sample5" ></TextInput>
       <RadioButtons ></RadioButtons>
-      <MyTextArea v-show="selectedOption !== '2'"></MyTextArea>
+      <MyTextArea v-show="select!= '2'"></MyTextArea>
       <!--<div class="buttons-block">
         <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="draw();" style="width: 100%;">
             <span class="mdc-button__ripple"></span>
@@ -41,15 +44,25 @@ import TopBar from "./components/TopBar.vue"
         
       </div>-->
     </div>
-    <div class="output">
+    <!-- <div class="output">
       <div class="sketch" id="sketch-div"></div>
-    </div>
+    </div> -->
+    <Sketch></Sketch>
+    <Sketch></Sketch>
+    <Sketch></Sketch>
+    <Sketch></Sketch>
+    
   </div>
 </template>
 
 <script>
+import {MDCSelect} from '@material/select';
 
-
+export default {
+  beforeUpdate() { 
+    select = new MDCSelect(document.querySelector('.mdc-select').querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value'));
+  }
+};
 
 </script>
 
