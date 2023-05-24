@@ -1,5 +1,5 @@
 <template>
-<div class="mdc-select mdc-select--outlined" style="width: 100%" >
+<div class="mdc-select mdc-select--outlined select" style="width: 100%" >
   <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
     <span class="mdc-notched-outline">
       <span class="mdc-notched-outline__leading"></span>
@@ -32,7 +32,7 @@
   </div>
 
   <!-- Other elements from the select remain. -->
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth menu-type">
     <ul class="mdc-deprecated-list">
       <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true">
         <span class="mdc-deprecated-list-item__ripple"></span>

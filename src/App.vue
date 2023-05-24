@@ -10,83 +10,66 @@ import Sketch from "./components/Sketch.vue"
 </script>
 
 <template>
-  <TopBar/>
-  <div class="main mdc-top-app-bar--fixed-adjust">
-    
-    <div class="settings">
-      <!--<div class="text h1">Настройки</div>-->
-      <Menu></Menu>
-      <TextInput title="Заголовок" idS="sample5" ></TextInput>
-      <RadioButtons ></RadioButtons>
-      <MyTextArea v-show="select!= '2'"></MyTextArea>
-      <!--<div class="buttons-block">
-        <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="draw();" style="width: 100%;">
-            <span class="mdc-button__ripple"></span>
-            <i class="material-icons mdc-button__icon" aria-hidden="true"
-              >refresh</i
-            >
-            <span class="mdc-button__label">Обновить</span>
-          </button>
-        <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="shareImage()" style="width: 100%;">
-            <span class="mdc-button__ripple"></span>
-            <i class="material-icons mdc-button__icon" aria-hidden="true"
-              >share</i
-            >
-            <span class="mdc-button__label">Поделиться</span>
-          </button>
-        <button class="mdc-button mdc-button--raised mdc-button--leading" onclick="save('blshv_'+document.getElementById('sample5').value)" style="width: 100%;">
-            <span class="mdc-button__ripple"></span>
-            <i class="material-icons mdc-button__icon" aria-hidden="true"
-              >download</i
-            >
-            <span class="mdc-button__label">Скачать</span>
-          </button>
-        
-      </div>-->
-    </div>
-    <!-- <div class="output">
-      <div class="sketch" id="sketch-div"></div>
-    </div> -->
+  <!--  <TopBar/> -->
+  <div class="main">
+<!--     <div class="text h1">Настройки</div>
+ -->    <Menu></Menu>
+    <TextInput title="Заголовок" idS="sample5"></TextInput>
+    <MyTextArea v-show="type !== '2'"></MyTextArea>
+    <RadioButtons v-show="type !== '1'"></RadioButtons>
     <Sketch></Sketch>
-    <Sketch></Sketch>
-    <Sketch></Sketch>
-    <Sketch></Sketch>
-    
+
+
+
   </div>
 </template>
 
 <script>
-import {MDCSelect} from '@material/select';
+
 
 export default {
-  beforeUpdate() { 
-    select = new MDCSelect(document.querySelector('.mdc-select').querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value'));
+  data() {
+    return {
+      type: '',
+    };
+
+  },
+
+  methods: {
+
+    mycanvas: function () { }
+  },
+  mounted: function () {
+
+
+    let select = document.querySelector('.mdc-select');
+    this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+    setInterval(() => {
+      this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+    }, 100);
+
+
   }
-};
+
+}
 
 </script>
 
 
 
 <style lang='scss'>
-
-@use "@material/theme" with (
-  $primary: #006491,
+@use "@material/theme" with ($primary: #007db7,
   $secondary: #006491,
   $background: #fff,
-  
+
+
 );
-@use "@material/shape" with (
-  $small-component-radius: 7px,
-  $medium-component-radius: 7px
-);
+@use "@material/shape" with ($small-component-radius: 5px,
+  $medium-component-radius: 5px);
 @use "material-components-web";
 @use "@material/button";
 @use "@material/button/styles.scss";
 
 
 @import "./variables";
-
-
-
 </style>

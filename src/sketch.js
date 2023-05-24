@@ -76,9 +76,12 @@ function setup() {
   width = w
   height = h
   let canvas = createCanvas(350, 350);
-  canvas.parent('sketch-div');
   select = document.querySelector('.mdc-select');
   type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+
+  select1 = document.querySelector('.color');
+  type1 = select1.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+
   one = createGraphics(1080, 1080);
   two = createGraphics(1080, 1080);
   three = createGraphics(1620, 1080);
@@ -302,7 +305,7 @@ function genS(squareSize, totalSquares, squaresPerRow, squaresPerCol) {
         squareColors.push(color);
       }
     }
-    shuffle(squareColors, true); // перемешиваем массив цветов
+    shuffle(squareColors); // перемешиваем массив цветов
     // рисуем квадраты с полученными цветами
     for (let i = 0; i < squaresPerRow; i++) {
       for (let j = 0; j < squaresPerCol; j++) {

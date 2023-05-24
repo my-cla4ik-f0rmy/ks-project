@@ -1,36 +1,58 @@
-
 <template>
-  <div class="mdc-form-field" v-show="type !== 4">
-    <div class="mdc-radio">
-        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" value="1" checked>
-        <div class="mdc-radio__background">
-        <div class="mdc-radio__outer-circle"></div>
-        <div class="mdc-radio__inner-circle"></div>
-        </div>
-        <div class="mdc-radio__ripple"></div>
-    </div>
-    <label for="radio-1">Синий</label>
-    <div class="mdc-radio">
-        <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios" value="2">
-        <div class="mdc-radio__background">
-        <div class="mdc-radio__outer-circle"></div>
-        <div class="mdc-radio__inner-circle"></div>
-        </div>
-        <div class="mdc-radio__ripple"></div>
-    </div>
-    <label for="radio-2">Зеленый</label>
-    <div class="mdc-radio">
-        <input class="mdc-radio__native-control" type="radio" id="radio-3" name="radios" value="3">
-        <div class="mdc-radio__background">
-        <div class="mdc-radio__outer-circle"></div>
-        <div class="mdc-radio__inner-circle"></div>
-        </div>
-        <div class="mdc-radio__ripple"></div>
-    </div>
-    
-    
-    <label for="radio-3">Оранжевый</label>
+<div class="mdc-select mdc-select--outlined color" style="width: 100%" >
+  <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+    <span class="mdc-notched-outline">
+      <span class="mdc-notched-outline__leading"></span>
+      <span class="mdc-notched-outline__notch">
+        <span id="outlined-select-label" class="mdc-floating-label">Цвет</span>
+      </span>
+      <span class="mdc-notched-outline__trailing"></span>
+    </span>
+    <span class="mdc-select__selected-text-container">
+      <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+    </span>
+    <span class="mdc-select__dropdown-icon">
+      <svg
+          class="mdc-select__dropdown-icon-graphic"
+          viewBox="7 10 10 5" focusable="false">
+        <polygon
+            class="mdc-select__dropdown-icon-inactive"
+            stroke="none"
+            fill-rule="evenodd"
+            points="7 10 12 15 17 10">
+        </polygon>
+        <polygon
+            class="mdc-select__dropdown-icon-active"
+            stroke="none"
+            fill-rule="evenodd"
+            points="7 15 12 10 17 15">
+        </polygon>
+      </svg>
+    </span>
+  </div>
 
+  <!-- Other elements from the select remain. -->
+  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+    <ul class="mdc-deprecated-list">
+      <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="Колледж" aria-selected="true">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__text">Синий</span>
+
+      </li>
+      <li class="mdc-deprecated-list-item" data-value="2">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__text">Зеленый</span>
+      </li>
+      <li class="mdc-deprecated-list-item" data-value="3">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__text">Оранжевый</span>
+      </li>
+      <li class="mdc-deprecated-list-item" data-value="4">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__text">Квадраты</span>
+      </li>
+    </ul>
+  </div>
 </div>
 
 </template>
@@ -38,23 +60,9 @@
 <script>
 
 </script>
-
-<style lang="scss" >
-@use "@material/theme" with (
-  $primary: #006491,
-  $secondary: #006491,
- 
-  $on-primary: #006491,
-  $on-secondary: #006491,
-  $surface: red,
-  
-);
-@use "@material/radio/styles";
-@use "@material/form-field";
-
-@include form-field.core-styles;
-
-.mdc-radio{
-    $ink-color: #006491
-}
+<style lang="scss">
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/select/styles";
 </style>
