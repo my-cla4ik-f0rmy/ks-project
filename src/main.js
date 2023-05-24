@@ -19,8 +19,9 @@ const select2 = new MDCSelect(document.querySelector('.color'));
 
 import {MDCTextField} from '@material/textfield';
 
-const textField = new MDCTextField(document.querySelector('.title'));
+const textField = new MDCTextField(document.querySelector('.sample5'));
 const textField2 = new MDCTextField(document.querySelector('.area'));
+const textField3 = new MDCTextField(document.querySelector('.info1'));
 
 
 import {MDCSwitch} from '@material/switch';

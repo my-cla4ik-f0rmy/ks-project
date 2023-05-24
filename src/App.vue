@@ -15,6 +15,7 @@ import Sketch from "./components/Sketch.vue"
 <!--     <div class="text h1">Настройки</div>
  -->    <Menu></Menu>
     <TextInput title="Заголовок" idS="sample5"></TextInput>
+    <TextInput title="Блок №1" idS="info1"></TextInput>
     <MyTextArea v-show="type !== '2'"></MyTextArea>
     <RadioButtons v-show="type !== '1'"></RadioButtons>
     <Sketch></Sketch>

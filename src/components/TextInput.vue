@@ -1,5 +1,5 @@
 <template>
-<label class="mdc-text-field mdc-text-field--outlined title" style="width: 100%;">
+<label :class="['mdc-text-field', 'mdc-text-field--outlined', idS]" style="width: 100%;">
   <span class="mdc-notched-outline">
     <span class="mdc-notched-outline__leading"></span>
     <span class="mdc-notched-outline__notch">

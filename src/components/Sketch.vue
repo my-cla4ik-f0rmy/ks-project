@@ -1,11 +1,20 @@
 <template>
     <div class="output">
+        <div class="buttons">
+            <button @click="saveCanvas" class="mdc-button mdc-button--outlined mdc-button--icon-leading">
+                <span class="mdc-button__ripple"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">download</i>
+                <span class="mdc-button__label">Скачать</span>
+            </button>
+            <button @click="shuffleColors" v-show="type == '1'"
+                class="mdc-button mdc-button--outlined mdc-button--icon-leading">
+                <span class="mdc-button__ripple"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">cached</i>
+                <span class="mdc-button__label">Перемешать цвета</span>
+            </button>
 
-        <button  v-show="type == '1'" @click="shuffleColors" class="mdc-button mdc-button--unelevated" style="width: 100%;">
-            <span class="mdc-button__ripple"></span>Перемешать цвета</button>
+        </div>
         <div class="sketch" id="sketch-div" ref="canvas"></div>
-        <button @click="saveCanvas" class="mdc-button mdc-button--unelevated" style="width: 100%;"> <span
-                class="mdc-button__ripple"></span>Скачать</button>
     </div>
 </template>
 
@@ -39,6 +48,7 @@ export default {
             colorRadio: '',
             title: '',
             info: '',
+            info1: '',
             colorMatrix: [
                 ['#63B0DE', '#E9C154', '#28C67A', '#E87256', '#28C67A', '#E9C154'],
                 ['#63B0DE', '#E87256', '#E9C154', '#63B0DE', '#E87256', '#28C67A'],
@@ -83,14 +93,14 @@ export default {
                     let isDraw = 1;
                     p.resizeCanvas(360, 300);
 
-                    firstLayout(this.title, this.info,this.colorRadio, this.fontSize.size80, this.colorEncoding, isDraw, this.colorMatrix)
+                    firstLayout(this.title, this.info, this.info1, this.colorRadio, this.fontSize.size80, this.colorEncoding, isDraw, this.colorMatrix)
                 } else if (this.type === '2') {
                     p.resizeCanvas(360, 360);
 
                     secondLayout(this.fontSize.size80, this.type)
                 }
 
-                function firstLayout(title, info, colorRadio, fontSize, colop, isDraw, colorMatrix) {
+                function firstLayout(title, info, info1, colorRadio, fontSize, colop, isDraw, colorMatrix) {
 
                     let colors = {
                         '#63B0DE': 25, // 25% квадратов будет синего цвета
@@ -154,7 +164,7 @@ export default {
                     p.textSize(20)
                     p.textLeading(40);
                     p.textAlign(p.LEFT, p.TOP);
-                    p.text("19 МАЯ 14:30", 30, 210, 300);
+                    p.text(info1, 30, 210, 300);
 
                     p.textSize(31)
                     p.textLeading(40);
@@ -182,7 +192,7 @@ export default {
 
         },
         saveCanvas() {
-            this.ps.saveCanvas('myCanvas', 'png');
+            this.ps.saveCanvas(this.title, 'png');
         },
 
 
@@ -195,13 +205,14 @@ export default {
         let canvas = this.$refs.canvas;
         this.ps = new p5(this.mycanvas, canvas);
 
-      
+
         let select = document.querySelector('.mdc-select');
         this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
         setInterval(() => {
             this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
             this.title = document.getElementById("sample5").value;
             this.info = document.getElementById("sample6").value;
+            this.info1 = document.getElementById("info1").value;
 
 
         }, 100);
@@ -221,7 +232,13 @@ export default {
     /* Дополнительные свойства шрифта */
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
 body {
     font-family: 'MyFont', sans-serif;
-}
-</style>
+}</style>
