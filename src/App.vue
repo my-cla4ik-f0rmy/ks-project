@@ -3,21 +3,22 @@ import RadioButtons from "./components/RadioButtons.vue";
 import MyTextArea from "./components/MyTextArea.vue";
 import TextInput from "./components/TextInput.vue"
 import Menu from "./components/Menu.vue"
-import TopBar from "./components/TopBar.vue"
+import Size from "./components/size.vue"
 import Sketch from "./components/Sketch.vue"
-
+import fileInput from "./components/fileInput.vue"
 
 </script>
 
 <template>
   <!--  <TopBar/> -->
   <div class="main">
-<!--     <div class="text h1">Настройки</div>
- -->    <Menu></Menu>
-    <TextInput title="Заголовок" idS="sample5"></TextInput>
+    <!--     <div class="text h1">Настройки</div>-->
+    <Menu title="Шаблон" idS="Menu"></Menu>
+    <Size  title="Тип" idS="Size"></Size>
+    <TextInput title="Заголовок" idS="title"></TextInput>
     <TextInput title="Блок №1" idS="info1"></TextInput>
-    <MyTextArea v-show="type !== '2'"></MyTextArea>
-    <RadioButtons v-show="type !== '1'"></RadioButtons>
+    <TextInput title="Блок №2" idS="info2"></TextInput>
+    <RadioButtons v-show="type == '2'"></RadioButtons>
     <Sketch></Sketch>
 
 
@@ -32,6 +33,7 @@ export default {
   data() {
     return {
       type: '',
+      menuItems: ['Пункт 1', 'Пункт 2', 'Пункт 3']
     };
 
   },

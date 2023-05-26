@@ -1,10 +1,10 @@
 <template>
-<div class="mdc-select mdc-select--outlined select" style="width: 100%" >
+<div  :class="['mdc-select', 'mdc-select--outlined', 'select', idS]" style="width: 100%" >
   <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
     <span class="mdc-notched-outline">
       <span class="mdc-notched-outline__leading"></span>
       <span class="mdc-notched-outline__notch">
-        <span id="outlined-select-label" class="mdc-floating-label">Шаблон</span>
+        <span id="outlined-select-label" class="mdc-floating-label">{{ title }}</span>
       </span>
       <span class="mdc-notched-outline__trailing"></span>
     </span>
@@ -37,19 +37,10 @@
       <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true">
         <span class="mdc-deprecated-list-item__ripple"></span>
         <span class="mdc-deprecated-list-item__text">Пост</span>
-
       </li>
       <li class="mdc-deprecated-list-item" data-value="2">
         <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Аватарка</span>
-      </li>
-      <li class="mdc-deprecated-list-item" data-value="3">
-        <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Пост 2</span>
-      </li>
-      <li class="mdc-deprecated-list-item" data-value="4">
-        <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Мозайка</span>
+        <span class="mdc-deprecated-list-item__text">Пост (Одноцветный)</span>
       </li>
     </ul>
   </div>
@@ -58,7 +49,10 @@
 </template>
 
 <script>
-
+export default{
+  props: ['title', 'idS'],
+  
+}
 </script>
 <style lang="scss">
 @use "@material/list/mdc-list";

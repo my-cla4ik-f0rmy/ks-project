@@ -1,10 +1,10 @@
 <template>
-<div class="mdc-select mdc-select--outlined colors" style="width: 100%" >
+<div  :class="['mdc-select', 'mdc-select--outlined', 'select', idS]" style="width: 100%" >
   <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
     <span class="mdc-notched-outline">
       <span class="mdc-notched-outline__leading"></span>
       <span class="mdc-notched-outline__notch">
-        <span id="outlined-select-label" class="mdc-floating-label">Цвет</span>
+        <span id="outlined-select-label" class="mdc-floating-label">{{ title }}</span>
       </span>
       <span class="mdc-notched-outline__trailing"></span>
     </span>
@@ -32,24 +32,16 @@
   </div>
 
   <!-- Other elements from the select remain. -->
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth menu-type">
     <ul class="mdc-deprecated-list">
       <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" data-value="1" aria-selected="true">
         <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Синий</span>
+        <span class="mdc-deprecated-list-item__text">Публикация</span>
 
       </li>
       <li class="mdc-deprecated-list-item" data-value="2">
         <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Зеленый</span>
-      </li>
-      <li class="mdc-deprecated-list-item" data-value="3">
-        <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Оранжевый</span>
-      </li>
-      <li class="mdc-deprecated-list-item" data-value="4">
-        <span class="mdc-deprecated-list-item__ripple"></span>
-        <span class="mdc-deprecated-list-item__text">Желтый</span>
+        <span class="mdc-deprecated-list-item__text">Сторис</span>
       </li>
     </ul>
   </div>
@@ -58,7 +50,10 @@
 </template>
 
 <script>
-
+export default{
+  props: ['title', 'idS'],
+  
+}
 </script>
 <style lang="scss">
 @use "@material/list/mdc-list";

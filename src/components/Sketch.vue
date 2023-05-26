@@ -25,38 +25,42 @@ export default {
     data() {
         return {
             type: '',
-            colorEncoding: {
-                color1: "#1D628B",
-                color2: "#2680B5",
-                color3: "#399BD5",
-                color4: "#63B0DE",
-                color11: "#1F975D",
-                color12: "#22A867",
-                color13: "#24B770",
-                color14: "#27C679",
-                color21: "#B75842",
-                color22: "#C75F48",
-                color23: "#DB6B51",
-                color24: "#E87156",
-            },
+
             fontSize: {
                 size80: 80,
                 size48: 48,
                 size180: 180,
                 size60: 60,
             },
+            postSize: {
+                post: 300,
+                storis: 640,
+            },
             colorRadio: '',
             title: '',
             info: '',
             info1: '',
+            size: '',
             colorMatrix: [
                 ['#63B0DE', '#E9C154', '#28C67A', '#E87256', '#28C67A', '#E9C154'],
                 ['#63B0DE', '#E87256', '#E9C154', '#63B0DE', '#E87256', '#28C67A'],
                 ['#E9C154', '#28C67A', '#E87256', '#28C67A', '#63B0DE', '#E87256'],
                 ['#E87256', '#28C67A', '#63B0DE', '#E9C154', '#28C67A', '#E87256'],
                 ['#63B0DE', '#E87256', '#28C67A', '#E9C154', '#28C67A', '#63B0DE'],
-                ['#28C67A', '#E9C154', '#E87256', '#63B0DE', '#E9C154', '#28C67A']
-            ]
+                ['#E87256', '#28C67A', '#63B0DE', '#E9C154', '#28C67A', '#E87256'],
+                ['#63B0DE', '#E9C154', '#28C67A', '#E87256', '#28C67A', '#E9C154'],
+                ['#28C67A', '#E9C154', '#E87256', '#63B0DE', '#E9C154', '#28C67A'],
+                ['#63B0DE', '#E87256', '#28C67A', '#E9C154', '#28C67A', '#63B0DE'],
+                ['#E87256', '#28C67A', '#63B0DE', '#E9C154', '#28C67A', '#E87256'],
+                ['#63B0DE', '#E87256', '#28C67A', '#E9C154', '#28C67A', '#63B0DE'],
+                ['#28C67A', '#E9C154', '#E87256', '#63B0DE', '#E9C154', '#28C67A'],
+            ],
+            colors:{
+                blue:'#63B0DE',
+                orange: '#E87256',
+                green: '#28C67A',
+                yellow: '#E9C154'
+            }
         };
 
     },
@@ -90,32 +94,70 @@ export default {
             }
             p.draw = () => {
                 if (this.type === '1') {
-                    let isDraw = 1;
-                    p.resizeCanvas(360, 300);
+                    if (this.size === '1') {
 
-                    firstLayout(this.title, this.info, this.info1, this.colorRadio, this.fontSize.size80, this.colorEncoding, isDraw, this.colorMatrix)
+                        p.resizeCanvas(360, this.postSize.post);
+                        var indent = 27
+                        var indent2 = 232
+
+
+                    } else {
+
+                        p.resizeCanvas(360, this.postSize.storis);
+                        var indent = 100
+                        var indent2 = 352
+
+                    }
+
+                    firstLayout(this.title, this.info, this.info1, this.colorMatrix, indent, indent2)
                 } else if (this.type === '2') {
-                    p.resizeCanvas(360, 360);
+                    
 
-                    secondLayout(this.fontSize.size80, this.type)
+                    if (this.size === '1') {
+
+                        p.resizeCanvas(360, 300);
+                        var indent = 27
+                        var indent2 = 232
+
+
+                    } else {
+
+                        p.resizeCanvas(360, this.postSize.storis);
+                        var indent = 100
+                        var indent2 = 352
+
+                    }
+
+                    secondLayout(this.title, this.info, this.info1, indent, indent2, this.colorRadio)
+                } else if (this.type === '3') {
+                    
+
+                    if (this.size === '1') {
+
+                        p.resizeCanvas(360, 300);
+
+
+
+                    } else {
+
+                        p.resizeCanvas(360, this.postSize.storis);
+
+
+                    }
+
+                    thirdLayout()
                 }
 
-                function firstLayout(title, info, info1, colorRadio, fontSize, colop, isDraw, colorMatrix) {
+                function firstLayout(title, info, info1, colorMatrix) {
 
-                    let colors = {
-                        '#63B0DE': 25, // 25% квадратов будет синего цвета
-                        '#E9C154': 25, // 25% квадратов будет желтого цвета
-                        '#28C67A': 25, // 25% квадратов будет зеленого цвета
-                        '#E87256': 25 // 25% квадратов будет оранжевого цвета
-                    };
+
                     p.background(300);
                     p.fill("#63B0DE");
 
                     let square_coutn = 6;
                     let squareSize = (360) / square_coutn;
-                    let squaresPerRow = square_coutn;
+                    let squaresPerRow = 11;
                     let squaresPerCol = 6;
-                    let totalSquares = squaresPerRow * squaresPerCol;
                     let squareColors = [];
 
 
@@ -135,9 +177,9 @@ export default {
                     }
 
 
-                    for (let i = 0; i < squaresPerRow; i++) {
-                        for (let j = 0; j < squaresPerCol; j++) {
-                            let index = i + j * squaresPerRow;
+                    for (let i = 0; i < squaresPerCol; i++) {
+                        for (let j = 0; j < squaresPerRow; j++) {
+                            let index = i + j * squaresPerCol;
                             let x = i * squareSize;
                             let y = j * squareSize;
                             p.fill(squareColors[index]);
@@ -159,31 +201,63 @@ export default {
                     p.textSize(31)
                     p.textLeading(40);
                     p.textAlign(p.LEFT, p.TOP);
-                    p.text(title, 30, 27, 300);
+                    p.text(title.toUpperCase(), 30, indent, 300);
 
                     p.textSize(20)
                     p.textLeading(40);
                     p.textAlign(p.LEFT, p.TOP);
-                    p.text(info1, 30, 210, 300);
+                    p.text(info1.toUpperCase(), 30, indent2 - 20, 300);
 
                     p.textSize(31)
                     p.textLeading(40);
                     p.textAlign(p.LEFT, p.TOP);
-                    p.text(info, 30, 232, 300);
+                    p.text(info.toUpperCase(), 30, indent2, 300);
                     p.fill("#63B0DE");
 
 
                 }
 
-                function secondLayout(size80, type) {
-                    p.background(400);
-                    p.fill(200, 0, 0);
-                    p.fill(200, 255, 0);
-                    p.textSize(size80)
+                function secondLayout(title, info, info1, indent, indent2, colorRadio) {
+
+
+                    if (colorRadio === '1'){
+                        p.background('#63B0DE');
+
+                    } else if (colorRadio === '2'){
+                        p.background('#28C67A');
+
+                    }else if (colorRadio === '3'){
+                        p.background('#E87256');
+
+                    }else if (colorRadio === '4'){
+                        p.background('#E9C154');
+
+                    }
+
+                    p.noStroke()
+                    p.fill("#ffffff");
                     p.textFont('MyFont')
-                    p.textLeading(100);
+                    p.textSize(31)
+                    p.textLeading(40);
                     p.textAlign(p.LEFT, p.TOP);
-                    p.text(type, 50, 50, 200);
+                    p.text(title.toUpperCase(), 30, indent, 300);
+
+                    p.textSize(20)
+                    p.textLeading(40);
+                    p.textAlign(p.LEFT, p.TOP);
+                    p.text(info1.toUpperCase(), 30, indent2 - 20, 300);
+
+                    p.textSize(31)
+                    p.textLeading(40);
+                    p.textAlign(p.LEFT, p.TOP);
+                    p.text(info.toUpperCase(), 30, indent2, 300);
+                    p.fill("#63B0DE");
+
+
+                }
+
+                function thirdLayout(){
+
                 }
 
 
@@ -207,12 +281,18 @@ export default {
 
 
         let select = document.querySelector('.mdc-select');
+        let select2 = document.querySelector('.Size');
+        let select3 = document.querySelector('.colors');
+
+
         this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
         setInterval(() => {
             this.type = select.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
-            this.title = document.getElementById("sample5").value;
-            this.info = document.getElementById("sample6").value;
-            this.info1 = document.getElementById("info1").value;
+            this.size = select2.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+            this.colorRadio = select3.querySelector('.mdc-deprecated-list-item--selected').getAttribute('data-value');
+            this.title = document.getElementById("title").value;
+            this.info = document.getElementById("info1").value;
+            this.info1 = document.getElementById("info2").value;
 
 
         }, 100);
@@ -241,4 +321,5 @@ export default {
 
 body {
     font-family: 'MyFont', sans-serif;
-}</style>
+}
+</style>
