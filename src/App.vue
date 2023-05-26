@@ -74,5 +74,4 @@ export default {
 @use "@material/button/styles.scss";
 
 
-@import "./variables";
 </style>
