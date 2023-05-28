@@ -12,7 +12,7 @@ import fileInput from "./components/fileInput.vue"
 <template>
   <!--  <TopBar/> -->
   <div class="main">
-    <!--     <div class="text h1">Настройки</div>-->
+    <div class="name">Шаблонус</div>
     <Menu title="Шаблон" idS="Menu"></Menu>
     <Size  title="Тип" idS="Size"></Size>
     <TextInput title="Заголовок" idS="title"></TextInput>
@@ -67,6 +67,8 @@ export default {
 
 
 );
+
+
 @use "@material/shape" with ($small-component-radius: 5px,
   $medium-component-radius: 5px);
 @use "material-components-web";
@@ -74,4 +76,7 @@ export default {
 @use "@material/button/styles.scss";
 
 
+.name{
+  font-size: 35px;
+}
 </style>
